@@ -1,6 +1,9 @@
 # Discord-Moderation-Bot
 # Goals
 Add more integrated feature (API, League of Legends tracking, Clash of Clans, Steam, Web API). 
+Automated hosting using remote server
+Export chatlog to file 
+
 
 # Changelog
 
