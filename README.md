@@ -1,6 +1,7 @@
 # Discord-Moderation-Bot
-# Learning basic API integration and usage 
-# Make Commands and perform server functions using Python and Discord.py 
+# Goals
+Add more integrated feature (API, League of Legends tracking, Clash of Clans, Steam, Web API). 
+
 
 Version 1 Changelog - Acquired API Key and initalized bot into server (March xx 2019)
 - Built !Mute function
