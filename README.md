@@ -2,7 +2,8 @@
 # Goals
 Add more integrated feature (API, League of Legends tracking, Clash of Clans, Steam, Web API). 
 
-#Changelog
+# Changelog
+
 Version 1 Changelog - Acquired API Key and initalized bot into server (March xx 2019)
 - Built !Mute function
   - targets specific user and deletes messages as they are send
