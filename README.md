@@ -2,6 +2,9 @@
 # Goals
 - Add more integrated feature (API, League of Legends tracking, Clash of Clans, Steam, Web API). 
 - Automated hosting using remote server
+- Clean up code
+- Create permissions
+- Automatic acknowledgement of new members 
 - Export chatlog to file 
 
 
