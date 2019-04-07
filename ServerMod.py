@@ -13,20 +13,24 @@ bypassList = ['141735448052498433', '562838169452544014']  # Owner ID, Bot ID, t
 @client.event
 async def on_ready():
     print('Bot is connected to the client and is ready to run!')
-    print(client.user.name) 
+    await client.change_presence(game=discord.Game(name='Moderation Party 3!'))
+    print(client.user.name)
+
+
+@client.command(pass_context=True)
+async def clear(ctx, amount=100):
+    print("running....")
+    channel = ctx.message.channel
+    messages = []
+    async for message in client.logs_from(channel, limit=int(amount)):
+        messages.append(message)
+    await client.delete_messages(messages)
 
 
 @client.event
 async def on_message(message):
-
     """
-    Get all server members / Initial setup stuff
-    """
-    contents = message.content.split(" ")
-    print(contents, " --- ", message.author.name)
-
-    """
-    !members command - List all members in the server 
+    !getMembers command - List all members in the server
     """
 
     if message.content.startswith('!getMembers'):
@@ -35,10 +39,23 @@ async def on_message(message):
             await client.send_message(message.channel, members)
 
     """ 
-    Target Muting - !Tmute / !unmute (playernamehere) 
+    Target Muting - !mute / !unmute (playernamehere) 
     """
 
-    if message.author.name in targetList:  # or message.author.id == '125774331837022208':
+    if message.content.startswith("!unmute"):
+        contents = message.content.split(" ")
+        try:
+            targetList.remove(contents[1])
+            print(contents[1], " has been unmuted")
+        except ValueError:
+            return
+
+    if message.content.startswith("!mute"):
+        contents = message.content.split(" ")
+        targetList.append(contents[1])
+        print(targetList)
+
+    if message.author.name in targetList: # or message.author.id == '125774331837022208':
         try:
             print(message)
             await client.delete_message(message)
@@ -49,15 +66,6 @@ async def on_message(message):
         except discord.errors.NotFound:
             return
 
-    if message.content.startswith("!Tmute"):
-        targetList.append(contents[1])
-        print(targetList)
 
-    if message.content.startswith("!unmute"):
-        try:
-            targetList.remove(contents[1])
-            print(contents[1], " has been unmuted")
-        except ValueError:
-            return
 
 client.run("API KEY HIDDEN")
