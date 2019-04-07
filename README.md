@@ -20,3 +20,6 @@ Version 1.1 Changelog - Basic Modifications
 - Added toggle ability to !Mute command (!Tmute and !unmute)
 - Created Chatlog for ease of access
 
+Version 1.2 Changelog - Bugfixes and Clear Command
+- Fixed bug where it would delete users "!unmute" message
+- Added Clear command to clear chat messages
